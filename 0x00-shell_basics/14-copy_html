@@ -1,8 +1,3 @@
 #!/bin/bash
 
-for file in *.html
-do
-    if [ ! -f ../$file ] || [ $file -nt ../$file ]; then
-        cp $file ../$file
-    fi
-done
+rsync -av --ignore-existing --include='*.html' --exclude='*' . ..
